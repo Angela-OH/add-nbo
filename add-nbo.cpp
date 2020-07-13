@@ -3,6 +3,7 @@
 #include <netinet/in.h>
 
 int main(int argc, char* argv[]){
+
 	// error handling
 	if (argc!=3){
 		printf("Usage: %s <filename1> <filename2>\n", argv[0]);
@@ -26,8 +27,8 @@ int main(int argc, char* argv[]){
 	uint32_t* p2=reinterpret_cast<uint32_t*>(network_buffer2);
 	
 	// invert byte order
-	uint32_t n1=htonl(*p1);
-	uint32_t n2=htonl(*p2);
+	uint32_t n1=ntohl(*p1);
+	uint32_t n2=ntohl(*p2);
 
 	// result print
 	printf("%d(0x%x)", n1, n1);
